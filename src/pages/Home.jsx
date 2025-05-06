@@ -1,6 +1,16 @@
 import React, { useState, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { FiKey, FiUser, FiCalendar, FiSettings, FiArrowRight, FiChevronDown, FiChevronUp, FiSearch } from 'react-icons/fi';
+import { 
+  FiKey, 
+  FiUser, 
+  FiCalendar, 
+  FiSettings, 
+  FiArrowRight, 
+  FiChevronDown, 
+  FiChevronUp, 
+  FiSearch,
+  FiBookOpen
+} from 'react-icons/fi';
 
 export default function Home() {
   const navigate = useNavigate();
@@ -74,10 +84,18 @@ export default function Home() {
       textColor: "text-indigo-800",
       route: "/process-management",
       key: "process"
+    },
+    {
+      title: "Implementation Guide",
+      description: "Step-by-step instructions for common workflows",
+      icon: <FiBookOpen className="text-orange-600" size={24} />,
+      bgColor: "bg-orange-50",
+      borderColor: "border-orange-100",
+      textColor: "text-orange-800",
+      route: "/guide"
     }
   ];
 
-  // Filter endpoints based on search query
   const filteredEndpoints = useMemo(() => {
     if (!searchQuery) return apiEndpoints;
     

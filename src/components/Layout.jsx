@@ -9,7 +9,9 @@ import {
   FiKey, 
   FiSettings,
   FiChevronRight,
-  FiSearch
+  FiFileText,
+  FiBookOpen,
+  FiExternalLink
 } from 'react-icons/fi';
 
 export default function Layout({ children }) {
@@ -23,6 +25,8 @@ export default function Layout({ children }) {
   const navItems = [
     { path: '/', icon: FiHome, label: 'Home' },
     { path: '/authentication', icon: FiKey, label: 'Authentication' },
+    { path: '/documentation', icon: FiFileText, label: 'API Documentation' },
+    { path: '/guide', icon: FiBookOpen, label: 'Implementation Guide' },
     { path: '/patient-management', icon: FiUser, label: 'Patient Management' },
     { path: '/booking-management', icon: FiCalendar, label: 'Booking Management' },
     { path: '/process-management', icon: FiSettings, label: 'Process Management' },
@@ -83,14 +87,57 @@ export default function Layout({ children }) {
         </div>
 
         {/* Sidebar Footer */}
-        {sidebarOpen && (
-          <div className="p-4 border-t border-gray-200">
-            <div className="text-sm text-gray-500">
-              <p>API Version: 1.0.0</p>
-              <p className="mt-1">© 2023 Healthcare</p>
+        <div className="p-4 border-t border-gray-200">
+          {sidebarOpen ? (
+            <>
+              <div className="flex items-center justify-center space-x-4 mb-3">
+                <a 
+                  href="http://localhost:5173/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="flex items-center text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors"
+                >
+                  <FiExternalLink className="mr-1" size={14} />
+                  API Key Generation
+                </a>
+                <span className="text-gray-300">|</span>
+                <a 
+                  href="http://localhost:3001/api-docs" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="flex items-center text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors"
+                >
+                  <FiExternalLink className="mr-1" size={14} />
+                  Swagger Docs
+                </a>
+              </div>
+              <div className="text-center text-sm text-gray-500 font-medium">
+                © 2023 Healthcare
+              </div>
+            </>
+          ) : (
+            <div className="flex justify-center space-x-1">
+              <a 
+                href="http://localhost:5173/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-gray-500 hover:text-blue-600 transition-colors"
+                title="API Key Generation"
+              >
+                <FiExternalLink size={18} />
+              </a>
+              <a 
+                href="http://localhost:3001/api-docs" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-gray-500 hover:text-blue-600 transition-colors"
+                title="Swagger Docs"
+              >
+                <FiExternalLink size={18} />
+              </a>
             </div>
-          </div>
-        )}
+          )}
+        </div>
       </div>
 
       {/* Main Content */}
@@ -103,16 +150,6 @@ export default function Layout({ children }) {
                 {navItems.find(item => item.path === location.pathname)?.label || 'Dashboard'}
               </h2>
             </div>
-            {/* <div className="relative w-64">
-              <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                <FiSearch className="text-gray-400" />
-              </div>
-              <input
-                type="text"
-                placeholder="Search documentation..."
-                className="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md leading-5 bg-white placeholder-gray-500 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-              />
-            </div> */}
           </div>
         </header>
 
