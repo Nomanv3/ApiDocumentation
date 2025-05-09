@@ -96,6 +96,8 @@ export default function Home() {
     }
   ];
 
+  
+
   const filteredEndpoints = useMemo(() => {
     if (!searchQuery) return apiEndpoints;
     
@@ -116,6 +118,20 @@ export default function Home() {
   const toggleSection = (section) => {
     setExpandedSection(expandedSection === section ? null : section);
   };
+// pages/Home.js
+const handleNavigation = (route) => {
+  // Immediate scroll before navigation
+  window.scrollTo(0, 0);
+  document.documentElement.scrollTop = 0;
+  document.body.scrollTop = 0;
+  
+  const mainContent = document.getElementById('main-content');
+  if (mainContent) {
+    mainContent.scrollTop = 0;
+  }
+  
+  navigate(route);
+};
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -212,7 +228,7 @@ export default function Home() {
                             <tr 
                               key={index} 
                               className="hover:bg-blue-50 cursor-pointer"
-                              onClick={() => navigate(card.route)}
+                              onClick={() => handleNavigation(card.route)}
                             >
                               <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
                                 {endpoint.name}
@@ -236,7 +252,7 @@ export default function Home() {
                     </div>
                     <div className="mt-4 flex justify-end">
                       <button
-                        onClick={() => navigate(card.route)}
+                        onClick={() => handleNavigation(card.route)}
                         className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
                       >
                         View Full Documentation <FiArrowRight className="ml-2" />
@@ -264,7 +280,7 @@ export default function Home() {
             {featureCards.map((card, index) => (
               <div 
                 key={index}
-                onClick={() => navigate(card.route)}
+                onClick={() => handleNavigation(card.route)}
                 className={`${card.bgColor} border ${card.borderColor} rounded-lg p-6 cursor-pointer transition-all duration-300 hover:shadow-lg hover:transform hover:-translate-y-1 group`}
               >
                 <div className="flex flex-col h-full">

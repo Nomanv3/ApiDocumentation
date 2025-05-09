@@ -112,7 +112,7 @@ export default function Layout({ children }) {
                 </a>
               </div>
               <div className="text-center text-sm text-gray-500 font-medium">
-                © 2023 Healthcare
+                © 2025 Healthcare
               </div>
             </>
           ) : (
@@ -154,13 +154,13 @@ export default function Layout({ children }) {
         </header>
 
         {/* Page Content */}
-        <main className="flex-1 overflow-y-auto bg-gray-50 p-6">
-          <div className="max-w-6xl mx-auto">
-            <div className="bg-white rounded-lg shadow-sm p-6">
-              {children}
-            </div>
-          </div>
-        </main>
+        <main className="flex-1 overflow-y-auto bg-gray-50 p-6" id="main-content">
+  <div className="max-w-6xl mx-auto">
+    <div className="bg-white rounded-lg shadow-sm p-6">
+      {children}
+    </div>
+  </div>
+</main>
       </div>
     </div>
   );

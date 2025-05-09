@@ -17,3 +17,11 @@ body {
 .code-block {
   @apply p-2 bg-gray-800 text-gray-100 rounded text-sm;
 }
+
+/* html, body {
+  scroll-behavior: smooth;
+}
+
+#main-content {
+  scroll-behavior: smooth;
+} */

@@ -1,8 +1,28 @@
 import React from 'react';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { atomDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
+// import { useEffect } from 'react';
 
 export default function BookingDocumentation() {
+  // useEffect(() => {
+  //   // Force scroll to top when component mounts
+  //   const scrollToTop = () => {
+  //     window.scrollTo({ top: 0, behavior: 'smooth' });
+  //     document.documentElement.scrollTop = 0;
+  //     document.body.scrollTop = 0;
+  //   };
+    
+  //   scrollToTop();
+    
+  //   // Fallback in case smooth scroll doesn't work
+  //   const timer = setTimeout(() => {
+  //     window.scrollTo(0, 0);
+  //   }, 100);
+    
+  //   return () => clearTimeout(timer);
+  // }, []);
+
+
   const newBookingExample = `{
   "bookingDate": "2024-04-08",
   "doctorReference": "Dr. xyz",
