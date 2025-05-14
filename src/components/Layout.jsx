@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import SwaggerUI from '../pages/SwaggerUI'
 import { Link, useLocation } from 'react-router-dom';
 import { 
   FiMenu, 
@@ -30,6 +31,12 @@ export default function Layout({ children }) {
     { path: '/patient-management', icon: FiUser, label: 'Patient Management' },
     { path: '/booking-management', icon: FiCalendar, label: 'Booking Management' },
     { path: '/process-management', icon: FiSettings, label: 'Process Management' },
+    { 
+    path: '/Swagger', 
+    icon: FiFileText, 
+    label: 'Swagger',
+    // element: <SwaggerUI /> 
+  },
   ];
 
   return (
@@ -41,9 +48,9 @@ export default function Layout({ children }) {
           {sidebarOpen && (
             <div className="flex items-center">
               <div className="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center text-white font-bold mr-2">
-                H
+                AQ
               </div>
-              <h1 className="text-xl font-bold text-gray-800">Healthcare API</h1>
+              <h1 className="text-xl font-bold text-gray-800">AQure API</h1>
             </div>
           )}
           <button 
@@ -101,15 +108,7 @@ export default function Layout({ children }) {
                   API Key Generation
                 </a>
                 <span className="text-gray-300">|</span>
-                <a 
-                  href="http://localhost:3001/api-docs" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="flex items-center text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors"
-                >
-                  <FiExternalLink className="mr-1" size={14} />
-                  Swagger Docs
-                </a>
+               
               </div>
               <div className="text-center text-sm text-gray-500 font-medium">
                 © 2025 Healthcare
@@ -126,7 +125,7 @@ export default function Layout({ children }) {
               >
                 <FiExternalLink size={18} />
               </a>
-              <a 
+              {/* <a 
                 href="http://localhost:3001/api-docs" 
                 target="_blank" 
                 rel="noopener noreferrer"
@@ -134,7 +133,7 @@ export default function Layout({ children }) {
                 title="Swagger Docs"
               >
                 <FiExternalLink size={18} />
-              </a>
+              </a> */}
             </div>
           )}
         </div>

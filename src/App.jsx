@@ -8,6 +8,7 @@ import ProcessDocumentation from './pages/ProcessDocumentation';
 import ImplementationGuide from './pages/ImplementationGuide'
 import Documentation from './pages/Documentation';
 import ScrollToTop from './components/ScrollToTop';
+import SwaggerUI from './pages/SwaggerUI'
 import { AnimatePresence } from 'framer-motion';
 
 
@@ -17,18 +18,17 @@ function App() {
         <ScrollToTop />
       <Layout>
       <AnimatePresence mode="wait">
-
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/authentication" element={<AuthDocumentation />} />
           <Route path="/patient-management" element={<PatientDocumentation />} />
           <Route path="/guide" element={<ImplementationGuide />} />
-          <Route path="/Documentation" element={<Documentation/>} />
+          <Route path="/documentation" element={<Documentation/>} />
+          <Route path="/swagger" element={<SwaggerUI />} />
           <Route path="/booking-management" element={<BookingDocumentation />} />
           <Route path="/process-management" element={<ProcessDocumentation />} />
         </Routes>
         </AnimatePresence>
-
       </Layout>
     </Router>
   );
